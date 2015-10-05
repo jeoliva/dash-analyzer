@@ -43,4 +43,13 @@ parser.add_argument('-l', action="store", dest="frame_info_len", type=int, defau
 args = parser.parse_args()
 
 # Sample url: http://dash.edgesuite.net/envivio/dashpr/clear/Manifest.mpd
-mpd_obj = mpd.load(args.url)
+result = mpd.load(args.url)
+
+print "\n** Generic information **"
+print "  Is Live: {0}".format(result.manifest.dynamic)
+print "  Duration: {0} ms".format(result.manifest.duration)
+print "  Available Start Time: {0}".format(result.manifest.availabilityStartTime)
+print "  Max Segment Duration: {0} ms".format(result.manifest.maxSegmentDuration)
+print "  Min Buffer Time: {0} ms".format(result.manifest.minBufferTime)
+print "  Profiles: {0}".format(result.manifest.profiles)
+print "\n"

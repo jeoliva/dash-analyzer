@@ -23,7 +23,7 @@ except ImportError:
     from urllib.request import urlopen as url_opener
     urlopen = url_opener
 
-from mpd.model import Mpd
+from mpd import Mpd
 
 def load(uri):
     if is_url(uri):
